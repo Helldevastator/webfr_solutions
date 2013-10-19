@@ -1,4 +1,5 @@
-<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
   <jsp:directive.page contentType="text/html;charset=UTF-8" />
   <jsp:output omit-xml-declaration="yes" />
   <spring:message var="app_name" code="application_name" htmlEscape="false" />
@@ -12,12 +13,14 @@
 	<th></th></tr>
 	</thead>
 	<tbody>
-       <tr><td> Lorem Ipsum </td>
-       <td> Lorem ipsum dolor sit amet</td> 
+	<c:forEach items="questionnaires" var="q">
+       <tr><td> ${q.subject} </td>
+       <td> ${q.description}</td> 
        <td><img src="images/show.png"/></td>
        <td><img src="images/update.png"/></td>
        <td><img src="images/delete.png"/></td>
-       </tr>	
+       </tr>
+        </c:forEach>	
 	</tbody>
 	</table>
   <p>

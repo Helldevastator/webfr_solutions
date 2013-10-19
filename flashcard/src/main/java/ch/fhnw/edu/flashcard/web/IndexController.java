@@ -17,6 +17,7 @@ public class IndexController {
 	@RequestMapping(method = RequestMethod.GET)
 	public String list(Model uiModel) {
 		uiModel.addAttribute("questionnaires", Questionnaire.findAllQuestionnaires());
+		uiModel.addAttribute("delete","/images/delete.png");
 		this.logger.debug("index called");
 		return "index";
 	}
