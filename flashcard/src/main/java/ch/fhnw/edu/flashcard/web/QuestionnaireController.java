@@ -80,7 +80,7 @@ public class QuestionnaireController {
         uiModel.asMap().clear();
         uiModel.addAttribute("page", (page == null) ? "1" : page.toString());
         uiModel.addAttribute("size", (size == null) ? "10" : size.toString());
-        return "redirect:/questionnaires";
+        return "redirect:/";
     }
 
 	void populateEditForm(Model uiModel, Questionnaire questionnaire) {

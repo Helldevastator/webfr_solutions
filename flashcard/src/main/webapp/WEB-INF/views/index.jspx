@@ -1,29 +1,45 @@
-<div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0" xmlns:c="http://java.sun.com/jsp/jstl/core">
+<div xmlns:spring="http://www.springframework.org/tags"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:form="http://www.springframework.org/tags/form">
 
-  <jsp:directive.page contentType="text/html;charset=UTF-8" />
-  <jsp:output omit-xml-declaration="yes" />
-  <spring:message var="app_name" code="application_name" htmlEscape="false" />
-  <spring:message var="title" code="welcome_titlepane" arguments="${app_name}" htmlEscape="false" />
-  
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:message var="app_name" code="application_name"
+		htmlEscape="false" />
+	<spring:message var="title" code="welcome_titlepane"
+		arguments="${app_name}" htmlEscape="false" />
+
 	<table id="index_table">
-	<thead>
-	<tr> <th>Subject</th><th>Description</th>
-	<th></th>
-	<th></th>
-	<th></th></tr>
-	</thead>
-	<tbody>
-	<c:forEach items="questionnaires" var="q">
-       <tr><td> ${q.subject} </td>
-       <td> ${q.description}</td> 
-       <td><img src="images/show.png"/></td>
-       <td><img src="images/update.png"/></td>
-       <td><img src="images/delete.png"/></td>
-       </tr>
-        </c:forEach>	
-	</tbody>
+		<thead>
+			<tr>
+				<th>Subject</th>
+				<th>Description</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${questionnaires}" var="q">
+				<tr>
+					<td>${q.subject}</td>
+					<td>${q.description}</td>
+					<c:url value='/questionnaires/${q.id}' var="q_url" />
+					<c:url value='/images/delete.png' var="delete_pic" />
+					<td><a href="${q_url}"><img src="images/show.png" /></a></td>
+					<td><a href="${q_url}?form"><img src="images/update.png" /> </a></td>
+					<td><form:form action="${q_url}" method="DELETE">
+							<input class="image" src="${delete_pic}" type="image"
+								onclick="return confirm('Wollen Sie Objekt wirklich löschen');" />
+						</form:form></td>
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table>
-  <p>
-  <img src="images/create.png"/>
-  </p>
+	<p>
+	<c:url value="/questionnaires?form" var="q_url_create"/>
+	<a href="${q_url_create}"><img src="images/create.png"/></a>
+	</p>
 </div>

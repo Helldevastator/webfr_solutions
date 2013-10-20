@@ -3,17 +3,17 @@
 <tiles-definitions>
 	<definition extends="default" name="questionnaires/show">
     	<put-attribute name="header-center" value="/WEB-INF/views/questionnaires/headerView.jspx" />
-    	<put-attribute name="header-right" value="/WEB-INF/views/questionnaires/back.jspx" />
+    	<put-attribute name="header-right" value="/WEB-INF/views/back.jspx" />
         <put-attribute name="body" value="/WEB-INF/views/questionnaires/show.jspx"/>
     </definition>
 	<definition extends="default" name="questionnaires/create">
 	    <put-attribute name="header-center" value="/WEB-INF/views/questionnaires/headerCreate.jspx" />
-	    <put-attribute name="header-right" value="/WEB-INF/views/questionnaires/back.jspx" />
+	    <put-attribute name="header-right" value="/WEB-INF/views/back.jspx" />
         <put-attribute name="body" value="/WEB-INF/views/questionnaires/create.jspx"/>
     </definition>
 	<definition extends="default" name="questionnaires/update">
 	    <put-attribute name="header-center" value="/WEB-INF/views/questionnaires/headerUpdate.jspx" />
-	    <put-attribute name="header-right" value="/WEB-INF/views/questionnaires/back.jspx" />
+	    <put-attribute name="header-right" value="/WEB-INF/views/back.jspx" />
         <put-attribute name="body" value="/WEB-INF/views/questionnaires/update.jspx"/>
     </definition>
 </tiles-definitions>
